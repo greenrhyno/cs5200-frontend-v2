@@ -1,0 +1,22 @@
+.headingForNav {
+  color: white;
+}
+
+
+.loginPageContent {
+  padding-top: 5%;
+}
+
+.centerThis {
+  text-align: center;
+}
+
+.welcome{
+  font-weight: bold;
+  color: #71dd8a;
+  font-size: 64px;
+}
+
+.login {
+  padding-top: 3%;
+}

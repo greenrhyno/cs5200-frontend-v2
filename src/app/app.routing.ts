@@ -1,16 +1,18 @@
 import { Routes, RouterModule } from '@angular/router';
-// import {LoginComponent} from "./login/login.component";
-// import {RegisterComponent} from "./register/register.component";
-// import {ProfileComponent} from "./profile/profile.component";
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {ProfileComponent} from './profile/profile.component';
 import {HomePageComponent} from './home-page/home-page.component';
-// import {PantryComponent} from "./pantry/pantry.component";
+import {PantryComponent} from './pantry/pantry.component';
 
 const appRoutes: Routes = [
-  // { path: 'login', component: LoginComponent },
-  // { path: 'register', component: RegisterComponent },
-  // { path: 'profile', component: ProfileComponent },
-  // { path: 'pantry', component: PantryComponent,
-  { path: 'home', component: HomePageComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'pantry', component: PantryComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'home', component: HomePageComponent},
+  {path: '**', component: HomePageComponent}
 
 ];
 

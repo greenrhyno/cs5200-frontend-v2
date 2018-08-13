@@ -1,0 +1,33 @@
+<div class="loginPageContent container">
+  <div class="row">
+    <div class="col-1">
+      <!--Maybe place an add type bar here-->
+    </div>
+    <div class="col-10">
+      <h1 class="welcome centerThis">Welcome back, let's login and see what's in the pantry!</h1>
+
+      <div class="login">
+        <input
+          [(ngModel)]="logn"
+          class="form-control container-fluid"
+          placeholder="Username"
+        />
+        <input
+          [(ngModel)]="pswd"
+          class="form-control container-fluid"
+          placeholder="Password"
+          type="password"
+        />
+        <button (click)="login(logn , pswd)"
+                class="btn btn-dark btn-block">
+          Login
+        </button>
+      </div>
+    </div>
+    <div class="col-1">
+      <!--Maybe place an add type bar here-->
+    </div>
+  </div>
+</div>
+
+

@@ -10,7 +10,7 @@ describe('PantryComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ PantryComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

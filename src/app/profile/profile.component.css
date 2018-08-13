@@ -1,0 +1,26 @@
+.headingForNav {
+  color: white;
+}
+
+
+.profilePageContent {
+  padding-top: 5%;
+}
+
+.centerThis {
+  text-align: center;
+}
+
+.welcome{
+  font-weight: bold;
+  color: #71dd8a;
+  font-size: 64px;
+}
+
+.search {
+  padding-top: 3%;
+}
+
+.updateButton {
+
+}
