@@ -14,11 +14,11 @@
         DIY literally tousled 90's microdosing.</p>
 
       <div class="search">
-        <input
+        <input [(ngModel)]="username"
           class="form-control container-fluid"
           placeholder="What are you hungry for?"
         />
-        <button
+        <button (click)="login(username)"
           class="btn btn-dark btn-block">
           Search for recipes!
         </button>
