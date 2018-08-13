@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import {PersonServiceClient} from './services/person.service.client';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PantryComponent } from './pantry/pantry.component';
+import { ProfileComponent } from './profile/profile.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { RegisterComponent } from './register/register.component';
+import {routing} from './app.routing';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoginComponent,
+    NavbarComponent,
+    PantryComponent,
+    ProfileComponent,
+    RecipeComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    routing
   ],
-  providers: [],
+  providers: [PersonServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
