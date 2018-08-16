@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RegisterComponent } from './register/register.component';
 import {routing} from './app.routing';
+import {RecipeServiceClient} from './services/recipe.service.client';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import {routing} from './app.routing';
     FormsModule,
     routing
   ],
-  providers: [PersonServiceClient],
+  providers: [PersonServiceClient, RecipeServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
