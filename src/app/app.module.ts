@@ -30,7 +30,9 @@ import {routing} from './app.routing';
     FormsModule,
     routing
   ],
-  providers: [PersonServiceClient],
+  providers: [
+    PersonServiceClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

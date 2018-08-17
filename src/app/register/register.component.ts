@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PersonServiceClient} from '../services/person.service.client';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
-
+  username;
+  password;
+  confirmPassword;
+  constructor(private personService: PersonServiceClient) {}
+  register(username, password, confirmPassword) {
+    if (password.toString() !== confirmPassword.toString()) {
+      alert('Passwords do not match, please try again.');
+    } else {
+      this.personService.createPerson(username, password)
+        .then(response => response.json);
+    }
+  }
   ngOnInit() {
   }
 

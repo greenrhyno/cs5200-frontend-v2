@@ -7,21 +7,23 @@
       <h1 class="welcome centerThis">Welcome to Panfree, taste the possibilities!</h1>
 
       <div class="register">
-        <input
-          class="form-control container-fluid"
-          placeholder="Username"
+        <input [(ngModel)]="username"
+               class="form-control container-fluid"
+               placeholder="Username"
         />
-        <input
-          class="form-control container-fluid"
-          placeholder="Password"
+        <input [(ngModel)]="password"
+               class="form-control container-fluid"
+               placeholder="Password"
+               type="password"
         />
-        <input
-          class="form-control container-fluid"
-          placeholder="Confirm Password"
+        <input [(ngModel)]="confirmPassword"
+               class="form-control container-fluid"
+               placeholder="Confirm Password"
+               type="password"
         />
         <button
-          class="btn btn-dark btn-block">
-          <!--(click)="login(username, password)"-->
+          class="btn btn-dark btn-block"
+          (click)="register(username, password, confirmPassword)">
           Register
         </button>
       </div>

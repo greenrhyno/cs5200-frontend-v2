@@ -1,9 +1,24 @@
 import {Injectable} from '@angular/core';
 
-const pApiUrl = 'https://panfree.herokuapp.com/api/person/'
+const pApiUrl = 'https://panfree.herokuapp.com/api/person/';
 
 @Injectable()
 export class PersonServiceClient {
+
+  username = '';
+
+  current(username) {
+    this.username = username;
+  }
+  profile() {
+    return fetch( pApiUrl + 'login/' + this.username)
+      .then(function (response) {
+        if (response.status > 400) {
+          return null;
+        }
+        return response.json();
+      });
+  }
 
 
 
