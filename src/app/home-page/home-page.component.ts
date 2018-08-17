@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RecipeServiceClient} from '../services/recipe.service.client';
-
+let selfReference;
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -10,13 +10,24 @@ export class HomePageComponent implements OnInit {
 
   ingredients;
   user;
-  constructor(private recipeService: RecipeServiceClient) { }
+  recipeList = [];
+  constructor(private recipeService: RecipeServiceClient) {
+    selfReference = this;
+  }
+
+  navigateToRecipe(id) {
+    this.recipeService.findRecipeById(id)
+      .then(object => {
+        window.location.href = object.sourceUrl;
+      });
+  }
 
   findRecipeByIngredients(ingredients) {
     console.log(ingredients);
     this.recipeService.findRecipeByIngredients(ingredients)
       .then(function (recipe) {
         console.log(recipe);
+        selfReference.recipeList = recipe;
         });
   }
 

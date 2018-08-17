@@ -12,19 +12,40 @@ export class ProfileComponent implements OnInit {
 
   // @Input() username: String;
 
+  id;
   username = '';
   password = '';
   firstName = '';
   lastName = '';
-  phoneNumber = '';
   email = '';
-  address = '';
-  city = '';
-  state = '';
-  zip = '';
+  type = '';
+
+
+  updateUser() {
+    const user = {
+      username: this.username,
+      password: this.password,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      email: this.email,
+      type: this.type
+    };
+    this.personService.updatePerson(this.id, user)
+      .then(response => {
+        console.log(response);
+        alert('Profile updated.');
+      });
+
+
+  }
+
+
+
   constructor(private router: Router, private personService: PersonServiceClient) {
     selfReference = this;
   }
+
+
   ngOnInit() {
     this.personService
       .profile()
@@ -34,16 +55,13 @@ export class ProfileComponent implements OnInit {
           alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
           selfReference.router.navigate(['login']);
         } else {
+          this.id = user.id;
           this.username = user.login;
           this.password = user.password;
           this.firstName = user.firstName;
           this.lastName = user.lastName;
-          this.phoneNumber = user.phoneNumber;
           this.email = user.email;
-          this.address = user.address;
-          this.city = user.city;
-          this.state = user.state;
-          this.zip = user.zip;
+          this.type = user.type;
         }
       });
 

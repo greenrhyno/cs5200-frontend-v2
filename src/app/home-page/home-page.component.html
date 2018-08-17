@@ -20,23 +20,13 @@
           class="btn btn-dark btn-block">
           Search for recipes by ingredients!
         </button>
+
+        <ul class="list-group recipeGroup">
+          <li class="list-group-item" *ngFor="let recipe of recipeList" (click)= navigateToRecipe(recipe.id)>
+            <a><img src="{{recipe.image}}"/>   {{recipe.title}}</a>
+          </li>
+        </ul>
       </div>
-
-      <h1 class="welcome2 centerThis">Or...</h1>
-      <p class="centerThis ">Have a list of ingredients? Great! Search using what you have by typing in an ingredient
-        and separating multiple ingredients with a comma. </p>
-
-      <div class="search">
-        <input
-          class="form-control container-fluid"
-          placeholder="Recipes by ingredients."
-        />
-        <button
-          class="btn btn-dark btn-block">
-          Search for recipes!
-        </button>
-      </div>
-
 
     </div>
     <div class="col-1">
