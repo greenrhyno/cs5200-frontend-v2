@@ -8,17 +8,17 @@
 
       <div class="login">
         <input
-          [(ngModel)]="logn"
+          [(ngModel)]="username"
           class="form-control container-fluid"
           placeholder="Username"
         />
         <input
-          [(ngModel)]="pswd"
+          [(ngModel)]="password"
           class="form-control container-fluid"
           placeholder="Password"
           type="password"
         />
-        <button (click)="login(logn , pswd)"
+        <button (click)="login(username , password)"
                 class="btn btn-dark btn-block">
           Login
         </button>
