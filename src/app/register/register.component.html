@@ -10,20 +10,30 @@
         <input [(ngModel)]="username"
                class="form-control container-fluid"
                placeholder="Username"
-        />
+               required/>
         <input [(ngModel)]="password"
                class="form-control container-fluid"
                placeholder="Password"
                type="password"
-        />
+               required="true"/>
         <input [(ngModel)]="confirmPassword"
                class="form-control container-fluid"
                placeholder="Confirm Password"
                type="password"
-        />
+               required/>
+        <div class="form-group">
+          <select [(ngModel)]="typeOfUser" class="form-control" id="type">
+            <option value="User" selected>User</option>
+            <option value="Chef">Chef</option>
+            <option value="Admin<">Admin</option>
+            <option value="Company Representative<">Company Representative</option>
+          </select>
+        </div>
         <button
           class="btn btn-dark btn-block"
-          (click)="register(username, password, confirmPassword)">
+          (click)="register(username, password, confirmPassword)"
+          ng-required="register, password, confirmPassword, typeOfUser"
+        >
           Register
         </button>
       </div>
