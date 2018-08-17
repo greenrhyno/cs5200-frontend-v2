@@ -3,25 +3,22 @@
   <div class="row">
     <div class="col-1">
       <!--Maybe place an add type bar here-->
-      <!--testing a commmit-->
     </div>
     <div class="col-10">
-      <h1 class="welcome centerThis">Welcome to Panfree!</h1>
-      <p class="centerThis ">Lorem ipsum dolor amet gastropub pickled kogi coloring book lomo.
-        Green juice disrupt gochujang PBR&B, shoreditch single-origin coffee
-        shabby chic food truck fingerstache 3 wolf moon glossier truffaut authentic.
-        Distillery offal pug pitchfork tote bag gochujang portland. Quinoa hexagon
-        kinfolk forage stumptown tote bag. Forage next level wolf woke butcher
-        DIY literally tousled 90's microdosing.</p>
+      <h1 class="welcome centerThis">Welcome to PanFree!</h1>
+      <p class="centerThis ">Welcome to PanFree, a free web app meant to help you get the most out of your pantry.  PanFree searches for recipes
+        based on what you already have, so you can eat well without having to break the bank. To use,
+        simply register, build and manage your pantry, and see what culinary magic is hiding right in front of you!
+       </p>
 
       <div class="search">
-        <input [(ngModel)]="username"
+        <input [(ngModel)]="ingredients"
           class="form-control container-fluid"
-          placeholder="What are you hungry for?"
+          placeholder="Enter recipes here, separated by a comma and a space"
         />
-        <button (click)="login(username)"
+        <button (click)="findRecipeByIngredients(ingredients)"
           class="btn btn-dark btn-block">
-          Search for recipes!
+          Search for recipes by ingredients!
         </button>
       </div>
 

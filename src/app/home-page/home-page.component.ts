@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PersonServiceClient} from '../services/person.service.client';
+import {RecipeServiceClient} from '../services/recipe.service.client';
 
 @Component({
   selector: 'app-home-page',
@@ -8,15 +8,15 @@ import {PersonServiceClient} from '../services/person.service.client';
 })
 export class HomePageComponent implements OnInit {
 
-  username;
+  ingredients;
   user;
-  constructor(private personService: PersonServiceClient) { }
+  constructor(private recipeService: RecipeServiceClient) { }
 
-  login(userName) {
-    console.log(userName);
-    this.personService.findPersonByLogin(userName)
-      .then(function (user) {
-        console.log(user);
+  findRecipeByIngredients(ingredients) {
+    console.log(ingredients);
+    this.recipeService.findRecipeByIngredients(ingredients)
+      .then(function (recipe) {
+        console.log(recipe);
         });
   }
 
