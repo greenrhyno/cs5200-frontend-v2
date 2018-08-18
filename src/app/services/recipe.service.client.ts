@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-const pApiUrl = 'https://panfree.herokuapp.com/api/recipe/'
+const pApiUrl = 'https://panfree.herokuapp.com/api/recipe/';
 
 @Injectable()
 export class RecipeServiceClient {

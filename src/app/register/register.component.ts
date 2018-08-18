@@ -18,22 +18,29 @@ export class RegisterComponent implements OnInit {
     selfReference = this;
   }
   register(username, password, confirmPassword) {
-    this.personService.findPersonByLogin(username)
-      .then( response => {
-        if (response !== null) {
-          alert('Sorry, that user name is already taken.');
-        } else {
-          if (password.toString() !== confirmPassword.toString()) {
-            alert('Passwords do not match, please try again.');
-          } else {
-            this.personService.createPerson(username, password, this.typeOfUser)
-              .then(r => r.json);
-            this.personService.current(username);
-            this.personService.currentType(this.typeOfUser);
-            selfReference.router.navigate(['profile']);
-        }
-        } }
-      ); }
+    if (username === null || password == null || confirmPassword == null || this.typeOfUser == null) {
+      alert('Sorry, you may have missed one or two fields. Marke sure everything is complete before registering.');
+    }
+    else {
+      this.personService.findPersonByLogin(username)
+        .then(response => {
+            if (response !== null) {
+              alert('Sorry, that user name is already taken.');
+            } else {
+              if (password !== confirmPassword) {
+                alert('Passwords do not match, please try again.');
+              } else {
+                this.personService.createPerson(username, password, this.typeOfUser)
+                  .then(r => r.json);
+                this.personService.current(username);
+                this.personService.currentType(this.typeOfUser);
+                selfReference.router.navigate(['profile']);
+              }
+            }
+          }
+        );
+    }
+  }
   ngOnInit() {
   }
 

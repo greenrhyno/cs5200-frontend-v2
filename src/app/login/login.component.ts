@@ -13,8 +13,8 @@ let selfReference;
 
 export class LoginComponent implements OnInit {
 
-  username = String;
-  password = String;
+  username;
+  password;
 
   login = (username, password) => {
 
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
             alert('Password or username is incorrect, please try again.');
           }
         });
-    }
+    };
 
 
     // console.log([logn]);
@@ -61,6 +61,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.username = '';
+    this.password = '';
   }
 
 }
