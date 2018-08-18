@@ -1,3 +1,52 @@
-<p>
-  admin-mgmt-page works!
-</p>
+<div class="container-fluid">
+  <h1>User Management</h1>
+
+  <div class="container">
+    <div class="row">
+    <div class="col-md-2">
+      Username
+    </div>
+    <div class="col-md-2">
+      Password
+    </div>
+    <div class="col-md-1">
+      First
+    </div>
+    <div class="col-md-1">
+      Last
+    </div>
+    <div class="col-md-3">
+      Email
+    </div>
+    <div class="col-md-2">
+      Type
+    </div>
+
+    </div>
+
+    <div class="row" *ngFor="let person of personList">
+      <div class="col-md-2">
+        {{person.login}}
+      </div>
+      <div class="col-md-2">
+        {{person.password}}
+      </div>
+      <div class="col-md-1">
+        {{person.firstName}}
+      </div>
+      <div class="col-md-1">
+        {{person.lastName}}
+      </div>
+      <div class="col-md-3">
+        {{person.email}}
+      </div>
+      <div class="col-md-2">
+        {{person.type}}
+      </div>
+      <i class="fas fa-trash-alt" (click)="deletePerson(person.id)"></i>
+
+      <i class="fas fa-edit" (click)="updatePersonPopUp(id)"></i>
+    </div>
+
+  </div>
+</div>

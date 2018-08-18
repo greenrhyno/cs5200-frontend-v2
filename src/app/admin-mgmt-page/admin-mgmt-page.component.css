@@ -1,0 +1,43 @@
+.headingForNav {
+  color: white;
+}
+
+
+.homePageContent {
+  padding-top: 5%;
+}
+
+.centerThis {
+  text-align: center;
+}
+
+.welcome{
+  font-weight: bold;
+  color: #71dd8a;
+  font-size: 64px;
+}
+
+.welcome2 {
+  font-weight: bold;
+  color: #71dd8a;
+  padding-top: 5%;
+}
+
+.search {
+  padding-top: 3%;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.recipeGroup {
+  padding-top: 3%;
+}
+
+i {
+  padding-left: 14px;
+}
+
+

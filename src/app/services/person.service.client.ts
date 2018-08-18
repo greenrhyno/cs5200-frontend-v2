@@ -152,14 +152,14 @@ export class PersonServiceClient {
 
   deleteAllPerson() {
     return fetch(pApiUrl + 'deleteall', {
-      credentials: 'include',
+      // credentials: 'include',
       method: 'delete'
     });
   }
 
   deletePersonById(pid) {
     return fetch(pApiUrl + pid, {
-      credentials: 'include',
+      // credentials: 'include',
       method: 'delete'
     });
   }
