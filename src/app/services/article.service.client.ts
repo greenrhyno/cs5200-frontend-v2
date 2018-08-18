@@ -20,6 +20,16 @@ export class ArticleServiceClient {
       });
   }
 
+  findAllBlog() {
+    return fetch( baseApiUrl + 'blog/')
+      .then(function (response) {
+        if (response.status > 400) {
+          return null;
+        }
+        return response.json();
+      });
+  }
+
   findArticleById(id) {
     return fetch( pApiUrl  + id)
       .then(function (response) {

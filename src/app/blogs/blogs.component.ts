@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {}
+import {ArticleServiceClient} from '../services/article.service.client';
 
 @Component({
   selector: 'app-blogs',
@@ -8,7 +8,10 @@ import {}
 })
 export class BlogsComponent implements OnInit {
 
-  constructor() { }
+  selfReference;
+  constructor(private articleService: ArticleServiceClient) {
+    this.selfReference = this;
+  }
 
   ngOnInit() {
   }
