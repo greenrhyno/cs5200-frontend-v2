@@ -21,24 +21,77 @@ export class ProfileComponent implements OnInit {
   type = '';
   specialty = '';
   companyName = '';
+  user;
 
 
   updateUser() {
-    const user = {
+    this.user = {
       username: this.username,
       password: this.password,
       firstName: this.firstName,
       lastName: this.lastName,
-      email: this.email,
-      type: this.type,
-      specialty: this.specialty,
-      companyName: this.companyName
+      email: this.email
     };
-    this.personService.updatePerson(this.id, user)
+    this.personService.updatePerson(this.id, this.user)
       .then(response => {
         console.log(response);
         alert('Profile updated.');
       });
+    // if (this.type === 'User') {
+    //    this.user = {
+    //     username: this.username,
+    //     password: this.password,
+    //     firstName: this.firstName,
+    //     lastName: this.lastName,
+    //     email: this.email
+    //   };
+    //   this.personService.updateUser(this.id, this.user)
+    //     .then(response => {
+    //       console.log(response);
+    //       alert('Profile updated.');
+    //     });
+    // } else if (this.type === 'Admin') {
+    //   this.user = {
+    //     username: this.username,
+    //     password: this.password,
+    //     firstName: this.firstName,
+    //     lastName: this.lastName,
+    //     email: this.email
+    //   };
+    //   this.personService.updateAdmin(this.id, this.user)
+    //     .then(response => {
+    //       console.log(response);
+    //       alert('Profile updated.');
+    //     });
+    // } else if (this.type === 'CompanyRep') {
+    //   this.user = {
+    //     username: this.username,
+    //     password: this.password,
+    //     firstName: this.firstName,
+    //     lastName: this.lastName,
+    //     email: this.email,
+    //     name: this.companyName
+    //   };
+    //   this.personService.updateCompanyRep(this.id, this.user)
+    //     .then(response => {
+    //       console.log(response);
+    //       alert('Profile updated.');
+    //     });
+    // } else {
+    //     this.user = {
+    //       username: this.username,
+    //       password: this.password,
+    //       firstName: this.firstName,
+    //       lastName: this.lastName,
+    //       email: this.email,
+    //       specialty: this.specialty
+    //     };
+    //     this.personService.updateChef(this.id, this.user)
+    //       .then(response => {
+    //         console.log(response);
+    //         alert('Profile updated.');
+    //       });
+    // }
   }
 
   navigateToPantry() {

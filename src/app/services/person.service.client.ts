@@ -164,6 +164,18 @@ export class PersonServiceClient {
     }).then(response => response.json());
   }
 
+  updateAdmin(id, c) {
+    console.log(id, c);
+    return fetch(baseApiUrl + 'admin/' + id, {
+      // credentials: 'include',
+      method: 'put',
+      body: JSON.stringify(c),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
 
 
 
