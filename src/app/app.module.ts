@@ -19,6 +19,10 @@ import {ArticleServiceClient} from './services/article.service.client';
 import {AdminServiceClient} from './services/admin.service.client';
 import {ChefServiceClient} from './services/chef.service.client';
 import {UserServiceClient} from './services/user.service.client';
+import { PublicProfileComponent } from './public-profile/public-profile.component';
+import { ProfileListComponent } from './profile-list/profile-list.component';
+import { BlogListComponent } from './blog-list/blog-list.component';
+import { BlogComponent } from './blog/blog.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import {UserServiceClient} from './services/user.service.client';
     RegisterComponent,
     AdminMgmtPageComponent,
     RegisterComponent,
-    BlogsComponent
+    BlogsComponent,
+    PublicProfileComponent,
+    ProfileListComponent,
+    BlogListComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

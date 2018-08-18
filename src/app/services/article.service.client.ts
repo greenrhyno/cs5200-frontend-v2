@@ -31,7 +31,7 @@ export class ArticleServiceClient {
   }
 
   findArticleById(id) {
-    return fetch( pApiUrl  + id)
+    return fetch(pApiUrl + id)
       .then(function (response) {
         if (response.status > 400) {
           return null;
@@ -39,7 +39,6 @@ export class ArticleServiceClient {
         return response.json();
       });
   }
-
   findArticleByLogin(login) {
     return fetch( pApiUrl + 'login/' + login)
       .then(function (response) {
