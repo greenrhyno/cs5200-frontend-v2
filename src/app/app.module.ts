@@ -15,6 +15,10 @@ import {routing} from './app.routing';
 import {RecipeServiceClient} from './services/recipe.service.client';
 import { AdminMgmtPageComponent } from './admin-mgmt-page/admin-mgmt-page.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import {ArticleServiceClient} from './services/article.service.client';
+import {AdminServiceClient} from './services/admin.service.client';
+import {ChefServiceClient} from './services/chef.service.client';
+import {UserServiceClient} from './services/user.service.client';
 
 
 @NgModule({
@@ -36,7 +40,7 @@ import { BlogsComponent } from './blogs/blogs.component';
     FormsModule,
     routing
   ],
-  providers: [PersonServiceClient, RecipeServiceClient],
+  providers: [PersonServiceClient, RecipeServiceClient, ArticleServiceClient, AdminServiceClient, ChefServiceClient, UserServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

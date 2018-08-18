@@ -5,6 +5,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {PantryComponent} from './pantry/pantry.component';
 import {AdminMgmtPageComponent} from './admin-mgmt-page/admin-mgmt-page.component';
+import {BlogsComponent} from './blogs/blogs.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'pantry', component: PantryComponent},
   { path: 'admin-mgmt', component: AdminMgmtPageComponent},
+  {path: 'blogs', component: BlogsComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomePageComponent},
   {path: '**', component: HomePageComponent}
