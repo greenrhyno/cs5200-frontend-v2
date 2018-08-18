@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
   companyName = '';
   user;
 
-
   updateUser() {
     this.user = {
       username: this.username,
