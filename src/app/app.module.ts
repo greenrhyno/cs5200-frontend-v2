@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import {routing} from './app.routing';
 import {RecipeServiceClient} from './services/recipe.service.client';
 import { AdminMgmtPageComponent } from './admin-mgmt-page/admin-mgmt-page.component';
+import { BlogsComponent } from './blogs/blogs.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AdminMgmtPageComponent } from './admin-mgmt-page/admin-mgmt-page.compon
     RecipeComponent,
     RegisterComponent,
     AdminMgmtPageComponent,
-    RegisterComponent
+    RegisterComponent,
+    BlogsComponent
   ],
   imports: [
     BrowserModule,
