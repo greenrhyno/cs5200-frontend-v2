@@ -25,9 +25,15 @@ export class AdminMgmtPageComponent implements OnInit {
     );
   }
 
-  updatePersonPopUp(id) {
-
+  updatePerson(id, person) {
+    selfReference.personService.updatePerson(id, person).then((newPerson) => {
+      console.log(newPerson)
+      alert('User has been successfuly updated.')
+      selfReference.retrieveAllPeople();
+    }
+   );
   }
+
   ngOnInit() {
     selfReference.retrieveAllPeople();
   }
