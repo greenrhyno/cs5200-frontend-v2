@@ -19,9 +19,8 @@ export class RegisterComponent implements OnInit {
   }
   register(username, password, confirmPassword) {
     if (username === null || password == null || confirmPassword == null || this.typeOfUser == null) {
-      alert('Sorry, you may have missed one or two fields. Marke sure everything is complete before registering.');
-    }
-    else {
+      alert('Sorry, you may have missed one or two fields. Make sure everything is complete before registering.');
+    } else {
       this.personService.findPersonByLogin(username)
         .then(response => {
             if (response !== null) {
@@ -31,10 +30,12 @@ export class RegisterComponent implements OnInit {
                 alert('Passwords do not match, please try again.');
               } else {
                 this.personService.createPerson(username, password, this.typeOfUser)
-                  .then(r => r.json);
-                this.personService.current(username);
-                this.personService.currentType(this.typeOfUser);
-                selfReference.router.navigate(['profile']);
+                  .then(r => {
+                    console.log(r)
+                    this.personService.current(username);
+                    this.personService.currentType(this.typeOfUser);
+                    selfReference.router.navigate(['profile']);
+                  });
               }
             }
           }
