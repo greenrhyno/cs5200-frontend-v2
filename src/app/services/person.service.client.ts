@@ -17,7 +17,7 @@ export class PersonServiceClient {
   }
 
   profile() {
-    return fetch( pApiUrl + 'login/' + this.username)
+    return fetch( pApiUrl + this.username)
       .then(function (response) {
         if (response.status > 400) {
           return null;
@@ -124,6 +124,8 @@ export class PersonServiceClient {
       }
     }).then(response => response.json());
   }
+
+
 
 
 
