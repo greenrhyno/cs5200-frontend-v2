@@ -69,8 +69,36 @@
           <div class="col-10">
             <input
               class="form-control container-fluid"
-              placeholder="email"
+              placeholder="Email"
               [(ngModel)]="email"/>
+          </div>
+        </div>
+        <div [ngSwitch]="type">
+          <div *ngSwitchCase="'CompanyRep'">
+            <div class="row">
+              <div class="col-2">
+                <label>Company Name: </label>
+              </div>
+              <div class="col-10">
+                <input
+                  class="form-control container-fluid"
+                  placeholder="What's the name of your company?"
+                  [(ngModel)]="companyName"/>
+              </div>
+            </div>
+          </div>
+          <div *ngSwitchCase="'Chef'">
+            <div class="row">
+              <div class="col-2">
+                <label>Specialties: </label>
+              </div>
+              <div class="col-10">
+                <input
+                  class="form-control container-fluid"
+                  placeholder="What are some of your culinary specialties?"
+                  [(ngModel)]="specialty"/>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -86,11 +114,34 @@
               class="updateButton btn btn-dark btn-block">
               Update
             </button>
-            <button
+
+            <div [ngSwitch]="type">
+              <div *ngSwitchCase="'Chef'">
+            <button (click)="navigateToPantry()"
               class="pantryButton btn btn-secondary btn-block">
-              <!--(click)="update()"-->
-              Let's go to our pantry!
+              Let's blog about your current work!
             </button>
+              </div>
+              <div *ngSwitchCase="'CompanyRep'">
+                <button (click)="navigateToPantry()"
+                        class="pantryButton btn btn-secondary btn-block">
+                  Let's make some ads!
+                </button>
+              </div>
+              <div *ngSwitchCase="'Admin'">
+                <button (click)="navigateToPantry()"
+                        class="pantryButton btn btn-secondary btn-block">
+                  Let's get to work!
+                </button>
+              </div>
+              <div *ngSwitchDefault>
+                <button (click)="navigateToPantry()"
+                        class="pantryButton btn btn-secondary btn-block">
+                  Let's go to our pantry!
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

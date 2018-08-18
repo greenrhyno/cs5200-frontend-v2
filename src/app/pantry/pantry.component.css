@@ -4,7 +4,7 @@
 
 
 .homePageContent {
-  padding-top: 5%;
+  padding-top: 2%;
 }
 
 .centerThis {
@@ -25,4 +25,14 @@
 
 .add {
   padding-top: 3%;
+}
+
+.pantryButton {
+  /*padding-top: 3%;*/
+}
+
+.welcome2{
+  font-weight: bold;
+  color: #71dd8a;
+  font-size: 24px;
 }

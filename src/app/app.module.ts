@@ -26,7 +26,8 @@ import { AdminMgmtPageComponent } from './admin-mgmt-page/admin-mgmt-page.compon
     ProfileComponent,
     RecipeComponent,
     RegisterComponent,
-    AdminMgmtPageComponent
+    AdminMgmtPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

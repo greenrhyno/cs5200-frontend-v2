@@ -19,6 +19,8 @@ export class ProfileComponent implements OnInit {
   lastName = '';
   email = '';
   type = '';
+  specialty = '';
+  companyName = '';
 
 
   updateUser() {
@@ -28,15 +30,19 @@ export class ProfileComponent implements OnInit {
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,
-      type: this.type
+      type: this.type,
+      specialty: this.specialty,
+      companyName: this.companyName
     };
     this.personService.updatePerson(this.id, user)
       .then(response => {
         console.log(response);
         alert('Profile updated.');
       });
+  }
 
-
+  navigateToPantry() {
+    selfReference.router.navigate(['pantry']);
   }
 
 
@@ -62,6 +68,12 @@ export class ProfileComponent implements OnInit {
           this.lastName = user.lastName;
           this.email = user.email;
           this.type = user.type;
+          if (this.type === 'Chef') {
+            this.specialty = user.specialty;
+          }
+          if (this.type === 'Company Representative') {
+            this.companyName = user.name;
+          }
         }
       });
 
