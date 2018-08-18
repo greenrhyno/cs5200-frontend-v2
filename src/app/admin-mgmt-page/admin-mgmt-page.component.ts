@@ -9,9 +9,15 @@ let selfReference;
 })
 export class AdminMgmtPageComponent implements OnInit {
 
+  searchName;
   personList = [];
   constructor(private personService: PersonServiceClient) {
     selfReference = this;
+  }
+
+  fetchByLogin(logn) {
+    this.personService.findPersonByLogin(logn).then(people =>
+      selfReference.personList = [people]);
   }
 
   retrieveAllPeople() {
