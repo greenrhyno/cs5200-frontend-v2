@@ -7,13 +7,16 @@ const baseApiUrl = 'https://panfree.herokuapp.com/api/';
 export class PersonServiceClient {
 
   username = '';
-  type = '';
+  personType = '';
 
   current(username) {
     this.username = username;
   }
-  currentType(type) {
-    this.type = type;
+  currentType(personType ) {
+    this.personType  = personType ;
+  }
+  getPersonType() {
+    return this.personType;
   }
 
   profile() {
