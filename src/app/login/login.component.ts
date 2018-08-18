@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
             alert('Password or username is incorrect, please try again.');
           }
         });
-    };
+    }
 
 
     // console.log([logn]);
