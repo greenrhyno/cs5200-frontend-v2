@@ -73,6 +73,7 @@
               [(ngModel)]="email"/>
           </div>
         </div>
+
         <div [ngSwitch]="type">
           <div *ngSwitchCase="'CompanyRep'">
             <div class="row">
@@ -87,6 +88,7 @@
               </div>
             </div>
           </div>
+
           <div *ngSwitchCase="'Chef'">
             <div class="row">
               <div class="col-2">
@@ -100,6 +102,7 @@
               </div>
             </div>
           </div>
+
         </div>
 
 
@@ -129,7 +132,7 @@
                 </button>
               </div>
               <div *ngSwitchCase="'Admin'">
-                <button (click)="navigateToPantry()"
+                <button (click)="navigateToAdmin()"
                         class="pantryButton btn btn-secondary btn-block">
                   Let's get to work!
                 </button>

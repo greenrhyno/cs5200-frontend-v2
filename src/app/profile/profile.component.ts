@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PersonServiceClient} from '../services/person.service.client';
 import {Router} from '@angular/router';
+
 let selfReference;
 
 @Component({
@@ -21,20 +22,45 @@ export class ProfileComponent implements OnInit {
   type = '';
   specialty = '';
   companyName = '';
+  user;
 
 
   updateUser() {
-    const user = {
-      username: this.username,
-      password: this.password,
-      firstName: this.firstName,
-      lastName: this.lastName,
-      email: this.email,
-      type: this.type,
-      specialty: this.specialty,
-      companyName: this.companyName
-    };
-    this.personService.updatePerson(this.id, user)
+    console.log(this.type);
+    if (this.type === 'Chef') {
+      console.log('inside Chef');
+      this.user = {
+        username: this.username,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        type: this.type,
+        specialty: this.specialty,
+      };
+    } else if (this.type === 'CompanyRep') {
+      console.log('inside company');
+      this.user = {
+        username: this.username,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        type: this.type,
+        name: this.companyName
+      };
+    } else {
+      console.log('inside user');
+      this.user = {
+        username: this.username,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        type: this.type,
+      };
+    }
+    this.personService.updatePerson(this.id, this.user)
       .then(response => {
         console.log(response);
         alert('Profile updated.');
@@ -45,6 +71,9 @@ export class ProfileComponent implements OnInit {
     selfReference.router.navigate(['pantry']);
   }
 
+  navigateToAdmin() {
+    selfReference.router.navigate(['admin-mgmt']);
+  }
 
 
   constructor(private router: Router, private personService: PersonServiceClient) {
@@ -68,12 +97,8 @@ export class ProfileComponent implements OnInit {
           this.lastName = user.lastName;
           this.email = user.email;
           this.type = user.type;
-          if (this.type === 'Chef') {
-            this.specialty = user.specialty;
-          }
-          if (this.type === 'Company Representative') {
-            this.companyName = user.name;
-          }
+          this.specialty = user.specialty;
+          this.companyName = user.name;
         }
       });
 
