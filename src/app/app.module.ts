@@ -14,7 +14,6 @@ import { RegisterComponent } from './register/register.component';
 import {routing} from './app.routing';
 import {RecipeServiceClient} from './services/recipe.service.client';
 import { AdminMgmtPageComponent } from './admin-mgmt-page/admin-mgmt-page.component';
-import { BlogsComponent } from './blogs/blogs.component';
 import {ArticleServiceClient} from './services/article.service.client';
 import {AdminServiceClient} from './services/admin.service.client';
 import {ChefServiceClient} from './services/chef.service.client';
@@ -37,7 +36,6 @@ import { BlogComponent } from './blog/blog.component';
     RegisterComponent,
     AdminMgmtPageComponent,
     RegisterComponent,
-    BlogsComponent,
     PublicProfileComponent,
     ProfileListComponent,
     BlogListComponent,
