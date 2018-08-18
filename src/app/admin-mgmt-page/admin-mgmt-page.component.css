@@ -37,7 +37,11 @@ img {
 }
 
 i {
-  padding-left: 14px;
+  padding-left: 24px;
 }
 
+.search-bar {
+  display: inline;
+
+}
 

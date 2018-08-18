@@ -9,9 +9,15 @@ let selfReference;
 })
 export class AdminMgmtPageComponent implements OnInit {
 
+  searchName;
   personList = [];
   constructor(private personService: PersonServiceClient) {
     selfReference = this;
+  }
+
+  fetchByLogin(logn) {
+    this.personService.findPersonByLogin(logn).then(people =>
+      selfReference.personList = [people]);
   }
 
   retrieveAllPeople() {
@@ -25,9 +31,15 @@ export class AdminMgmtPageComponent implements OnInit {
     );
   }
 
-  updatePersonPopUp(id) {
-
+  updatePerson(id, person) {
+    selfReference.personService.updatePerson(id, person).then((newPerson) => {
+      console.log(newPerson)
+      alert('User has been successfuly updated.')
+      selfReference.retrieveAllPeople();
+    }
+   );
   }
+
   ngOnInit() {
     selfReference.retrieveAllPeople();
   }

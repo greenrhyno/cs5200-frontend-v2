@@ -20,7 +20,7 @@ export class PersonServiceClient {
   }
 
   profile() {
-    return fetch( pApiUrl + 'login/' + this.username)
+    return fetch( pApiUrl + this.username)
       .then(function (response) {
         if (response.status > 400) {
           return null;
@@ -127,6 +127,43 @@ export class PersonServiceClient {
       }
     }).then(response => response.json());
   }
+
+  updateChef(id, chef) {
+    console.log(id, chef);
+    return fetch(baseApiUrl + 'chef/' + id, {
+      // credentials: 'include',
+      method: 'put',
+      body: JSON.stringify(chef),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  updateCompanyRep(id, c) {
+    console.log(id, c);
+    return fetch(baseApiUrl + 'companyrep/' + id, {
+      // credentials: 'include',
+      method: 'put',
+      body: JSON.stringify(c),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  updateUser(id, c) {
+    console.log(id, c);
+    return fetch(baseApiUrl + 'user/' + id, {
+      // credentials: 'include',
+      method: 'put',
+      body: JSON.stringify(c),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
 
 
 
