@@ -26,6 +26,26 @@ export class UserServiceClient {
       });
   }
 
+  newFoodItem(userId, fooditem) {
+    const food = {
+      'foodName': fooditem
+    }
+    return fetch(baseApiUrl + 'user/' + userId + '/fooditem', {
+      method: 'post',
+      body: JSON.stringify(food),
+      // credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
+
+  deleteFood(foodId) {
+    return fetch(baseApiUrl + 'fooditem/' + foodId, {
+      method: 'delete'
+    });
+  }
+
   findUserByLogin(login) {
     return fetch( pApiUrl + 'login/' + login)
       .then(function (response) {
