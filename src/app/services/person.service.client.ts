@@ -8,7 +8,12 @@ export class PersonServiceClient {
 
   username = '';
   personType = '';
+  searchPerson = '';
+  id;
 
+  currentId(id) {
+    this.id = id;
+  }
   current(username) {
     this.username = username;
   }
@@ -18,7 +23,9 @@ export class PersonServiceClient {
   getPersonType() {
     return this.personType;
   }
-
+  setSearchPerson(username) {
+    this.searchPerson = username;
+  }
   profile() {
     return fetch( pApiUrl + 'login/' + this.username)
       .then(function (response) {
@@ -29,6 +36,25 @@ export class PersonServiceClient {
       });
   }
 
+  followUser(personId, followId) {
+    return fetch('https://panfree.herokuapp.com/api/person/' + personId + '/follow/' + followId, {
+        method: 'put',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+    ).then(response => response.json());
+  }
+
+  unfollowUser(personId, followId) {
+    return fetch('https://panfree.herokuapp.com/api/person/' + personId + '/follow/' + followId, {
+      method: 'put',
+      headers: {
+        'Accept': 'application/json'
+      }
+    }
+   ).then(response => response.json());
+  }
 
 
   createPerson(login, password, userType) {

@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   specialty = '';
   companyName = '';
   user;
+  bio;
+  imageURL;
 
   updateUser() {
     this.user = {
@@ -29,7 +31,9 @@ export class ProfileComponent implements OnInit {
       password: this.password,
       firstName: this.firstName,
       lastName: this.lastName,
-      email: this.email
+      email: this.email,
+      bio: this.bio,
+      imageURL: this.imageURL
     };
     this.personService.updatePerson(this.id, this.user)
       .then(response => {
@@ -109,6 +113,7 @@ export class ProfileComponent implements OnInit {
       .profile()
       .then(user => {
         console.log(user);
+        this.personService.currentId(user.id);
         if (user.status === 400) {
           alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
           selfReference.router.navigate(['login']);
@@ -120,6 +125,8 @@ export class ProfileComponent implements OnInit {
           this.lastName = user.lastName;
           this.email = user.email;
           this.type = user.type;
+          this.bio = user.bio;
+          this.imageURL = user.imageURL;
           if (this.type === 'Chef') {
             this.specialty = user.specialty;
           }

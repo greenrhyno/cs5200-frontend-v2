@@ -30,8 +30,6 @@
               placeholder="password"
               type="password"
             [(ngModel)]="password"/>
-
-
           </div>
         </div>
 
@@ -100,6 +98,32 @@
                   placeholder="What are some of your culinary specialties?"
                   [(ngModel)]="specialty"/>
               </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+              <label>Image URL: </label>
+            </div>
+            <div class="col-10">
+              <input
+                class="form-control container-fluid"
+                placeholder="Let's see that beautiful mug of yours. "
+                [(ngModel)]="imageURL"/>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+              <label>Bio: </label>
+            </div>
+            <div class="col-10">
+              <textarea
+                class="form-control container-fluid"
+                placeholder="Let's here a little about you! Write about your cooking experiences, and the flavors enjoy expirementing with!"
+                [(ngModel)]="bio"></textarea>
+
             </div>
           </div>
 

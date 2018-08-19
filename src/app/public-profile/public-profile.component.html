@@ -2,26 +2,14 @@
 
   <div class="row profilePageContent">
     <div class="col-4">
-      <img src="https://picsum.photos/370/400">
-      <button class="profileBtn btn btn-dark btn-block">Follow</button>
-      <h5 class="centerThis">Followers: </h5>
+      <img src="{{this.person.imageURL}}">
+      <button (click)="follow()" class="profileBtn btn btn-dark btn-block">Follow</button>
+      <button (click)="unfollow()" class="profileBtn btn btn-danger btn-block">Unfollow</button>
     </div>
     <div class="col-8">
 
-      <h1 class="titleProfile">Title</h1>
-      Lorem ipsum dolor amet drinking vinegar art party mumblecore squid, letterpress chartreuse cliche microdosing neutra hell of typewriter biodiesel heirloom craft beer. Stumptown hammock neutra, ramps flannel cliche vaporware kitsch palo santo chia 8-bit. Freegan leggings vexillologist roof party copper mug, fanny pack air plant photo booth godard paleo normcore bicycle rights. Readymade you probably haven't heard of them chicharrones offal, put a bird on it succulents slow-carb lomo iceland. Shaman gentrify paleo, tbh celiac cold-pressed gochujang butcher slow-carb. Vaporware adaptogen cray health goth cloud bread.
-
-      Banh mi ugh kale chips truffaut mixtape street art ramps hexagon twee keytar cloud bread knausgaard helvetica. Succulents pabst blue bottle sustainable, trust fund flexitarian palo santo venmo pok pok. Wolf keffiyeh raw denim, pinterest ethical blog copper mug VHS crucifix cray sustainable craft beer. Neutra celiac selfies irony air plant gentrify. Lumbersexual bitters skateboard listicle franzen stumptown. Celiac etsy shoreditch cred, marfa PBR&B tattooed chillwave artisan hoodie. Twee tumblr XOXO, shoreditch stumptown taiyaki readymade typewriter cliche brooklyn cornhole jianbing williamsburg leggings keytar.
-
-      Stumptown chicharrones hot chicken man bun ramps glossier woke retro coloring book health goth twee whatever. Hoodie ramps knausgaard edison bulb sriracha lo-fi. Fashion axe swag fixie, vaporware chia viral shaman raw denim. Craft beer vinyl schlitz, franzen cornhole mlkshk fingerstache.
-
-      Yr brooklyn pug tumblr crucifix, dreamcatcher taxidermy farm-to-table franzen. Snackwave cloud bread glossier narwhal brunch yuccie brooklyn pug authentic chartreuse. Tbh keytar vaporware shabby chic salvia synth, activated charcoal snackwave. Photo booth adaptogen waistcoat franzen gluten-free food truck, organic green juice poke four dollar toast cray stumptown viral irony vice.
-
-      Everyday carry seitan squid organic jianbing cold-pressed disrupt yuccie affogato sriracha four dollar toast normcore narwhal chambray occupy. Chartreuse yr photo booth, chambray jianbing freegan venmo butcher sriracha literally stumptown. Meditation beard live-edge readymade umami williamsburg. Humblebrag aesthetic enamel pin tattooed XOXO, pour-over pitchfork brunch actually single-origin coffee before they sold out.
-
-      Oh. You need a little dummy text for your mockup? How quaint.
-
-      I bet you’re still using Bootstrap too…
+      <h1 class="titleProfile">{{this.person.firstName}} {{this.person.lastName}}</h1>
+      {{this.person.bio}}
     </div>
   </div>
 

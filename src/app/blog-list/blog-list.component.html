@@ -2,51 +2,12 @@
   <div class="profilePageContent col-10">
     <ul class="listClass list-group">
 
-      <input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by username"/>
-      <button class="btn btn-dark mb-2" (click)="fetchByLogin(searchName)">Search</button>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
-        </div>
-      </li>
-      <li class="list-group-item">
-        <div class="row">
-          <a><img src="https://picsum.photos/50/50"/>NameFirst NameLast</a>
+      <!--<input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by username"/>-->
+      <!--<button class="btn btn-dark mb-2" (click)="fetchByLogin(searchName)">Search</button>-->
+
+      <li class="row list-group-item"  *ngFor="let blog of blogList" >
+        <div  (click)="sendToBlog(this.blog.id)">
+          <img src="{{this.blog.imageURL}}"/>{{this.blog.title}}
         </div>
       </li>
     </ul>
