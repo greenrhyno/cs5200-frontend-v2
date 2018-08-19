@@ -40,9 +40,11 @@ export class PersonServiceClient {
     return fetch('https://panfree.herokuapp.com/api/person/' + personId + '/follow/' + followId, {
         method: 'put',
         headers: {
-          'Content-Type': 'application/json',
+          mode: 'cors'
         }
-      }
+          // 'Access-Control-Allow-Methods': 'POST',
+          // 'Content-Type': 'application/json',
+        }
     ).then(response => response.json());
   }
 

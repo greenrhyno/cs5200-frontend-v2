@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PersonServiceClient} from '../services/person.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {last} from 'rxjs/operators';
+let selfReference;
 
 @Component({
   selector: 'app-public-profile',
@@ -38,6 +39,11 @@ export class PublicProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.personService.username === '') {
+      alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
+      selfReference.router.navigate(['login']);
+    }
+
     this.personId = this.route.url.split(':')[1];
 
     this.personService.findPersonById(this.personId)

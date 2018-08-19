@@ -12,11 +12,18 @@ let selfReference
 export class BlogListComponent implements OnInit {
 
   blogList = [];
-  constructor(private articleService: ArticleServiceClient, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private personService: PersonServiceClient,
+              private articleService: ArticleServiceClient,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
     selfReference = this;
   }
 
   ngOnInit() {
+    if (this.personService.username === '') {
+      alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
+      selfReference.router.navigate(['login']);
+    }
     this.articleService.findAllArticle()
       .then(response => {
         this.blogList = response;
