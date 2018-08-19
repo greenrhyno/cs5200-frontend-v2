@@ -39,7 +39,8 @@ export class PantryComponent implements OnInit {
   }
 
   constructor(private personService: PersonServiceClient, private articleService: ArticleServiceClient,
-              private chefService: ChefServiceClient, private userService: UserServiceClient, private recipeService: RecipeServiceClient) {
+              private chefService: ChefServiceClient, private userService: UserServiceClient,
+              private recipeService: RecipeServiceClient) {
     selfReference = this;
   }
 
@@ -92,6 +93,11 @@ export class PantryComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.personService.username === '') {
+      alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
+      selfReference.router.navigate(['login']);
+    }
+
     this.username = selfReference.personService.username;
 
     this.personService.findPersonByLogin(this.username)

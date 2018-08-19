@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   { path: 'pantry', component: PantryComponent},
   { path: 'blog', component: BlogComponent},
   { path: 'blog-list', component: BlogListComponent},
-  { path: 'publicProfile', component: PublicProfileComponent},
+  { path: 'publicProfile/:username', component: PublicProfileComponent},
   { path: 'profileList', component: ProfileListComponent},
   { path: 'admin-mgmt', component: AdminMgmtPageComponent},
   { path: 'blog-list', component: BlogListComponent},
