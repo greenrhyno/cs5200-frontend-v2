@@ -45,6 +45,12 @@ export class ChefServiceClient {
     });
   }
 
+  deleteBlogById(id) {
+    return fetch(baseApiUrl + 'blog/' + id, {
+      method: 'delete'
+    });
+  }
+
   findChefByLogin(login) {
     return fetch( pApiUrl + 'login/' + login)
       .then(function (response) {

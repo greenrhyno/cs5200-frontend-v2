@@ -26,6 +26,9 @@ export class PantryComponent implements OnInit {
   mainList = [];
   newFoodName;
   recipeList = [];
+  newBlog;
+  newAd;
+  description;
 
   submitPost() {
     alert('A post to your adoring fans has been submitted!');
@@ -43,6 +46,34 @@ export class PantryComponent implements OnInit {
   createFoodItem(n) {
     this.userService.newFoodItem(this.personId, n).then(() =>
       this.personService.findFood(this.personId).then(r => this.mainList = r));
+  }
+
+  createBlogPost() {
+    this.newBlog = {
+      title: this.blogTitle,
+      post: this.textForPost,
+      imageUrl: this.pictureUrl
+    };
+    this.chefService.createNewBlog(this.personId, this.newBlog).then( () =>
+      this.chefService.findAllBlogsForChef(this.username).then( r => this.mainList = r));
+  }
+
+  createAd() {
+    this.newAd = {
+      title: this.adTitle,
+      imageUrl: this.pictureUrl,
+      description: this.description
+    };
+  }
+
+  deleteAd(id) {
+    // finish
+  }
+
+
+  deleteBlogPost(id) {
+    this.chefService.deleteBlogById(id).then(() =>
+      this.chefService.findAllBlogsForChef(this.username).then(r => this.mainList = r));
   }
 
   deleteFoodItem(id) {
