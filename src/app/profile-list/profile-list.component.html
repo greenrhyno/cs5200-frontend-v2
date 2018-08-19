@@ -2,8 +2,8 @@
   <div class="profilePageContent col-10">
     <ul class="listClass list-group">
 
-      <input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by username"/>
-      <button class="btn btn-dark mb-2" (click)="fetchByLogin(searchName)">Search</button>
+      <!--<input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by username"/>-->
+      <!--<button class="btn btn-dark mb-2" (click)="fetchByLogin(searchName)">Search</button>-->
       <li class="row list-group-item"  *ngFor="let profile of profileList" >
         <div  (click)="sendToProfile(this.profile.login)">
           <img src="{{this.profile.imageURL}}}"/>{{this.profile.firstName}} {{this.profile.lastName}} {{this.profile.imageURL}}
