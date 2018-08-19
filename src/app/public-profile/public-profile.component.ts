@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PersonServiceClient} from '../services/person.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {last} from 'rxjs/operators';
-let selfReference;
+
 
 @Component({
   selector: 'app-public-profile',
@@ -11,13 +11,14 @@ let selfReference;
 })
 export class PublicProfileComponent implements OnInit {
 
+  selfReference;
   person;
   personId;
 
   constructor(private personService: PersonServiceClient,
               private activatedRoute: ActivatedRoute,
-              private route: Router) {
-    // selfReference = this;
+              private router: Router) {
+     this.selfReference = this;
     // this.activatedRoute.queryParams.subscribe(params => {
     //  const personId = params['personId'];
     //   console.log(personId); // Print the parameter to the console.
@@ -41,10 +42,10 @@ export class PublicProfileComponent implements OnInit {
   ngOnInit() {
     if (this.personService.username === '') {
       alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
-      selfReference.router.navigate(['login']);
+      this.router.navigate(['login']);
     }
 
-    this.personId = this.route.url.split(':')[1];
+    this.personId = this.router.url.split(':')[1];
 
     this.personService.findPersonById(this.personId)
       .then(response => {

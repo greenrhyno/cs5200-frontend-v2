@@ -3,9 +3,9 @@
 
   <div [ngSwitch]="personType">
     <!--REP CASE-->
-    <div *ngSwitchCase="'CompanyRep'">
+    <div *ngSwitchCase="'CompanyRep'" class="row">
         <div class="col-6">
-          <h1 class="welcome centerThis"> Your Blog Posts:</h1>
+          <h1 class="welcome centerThis"> Your Advertisements</h1>
 
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let item of mainList">
@@ -26,24 +26,24 @@
 
         </div>
         <div class="col-6">
-          <h1 class="centerThis">Create a new Blog!</h1>
+          <h1 class="centerThis">Create a new Advertisement!</h1>
           <div class="add">
             <input
               class="form-control container-fluid"
               placeholder="Title"
-              [(ngModel)]="blogTitle"
+              [(ngModel)]="adTitle"
             />
             <input
               class="form-control container-fluid"
-              placeholder="URL for image"
+              placeholder="URL for image (recommended 300x800)"
               [(ngModel)]="pictureUrl"
             />
             <textarea
               class="form-control container-fluid"
-              placeholder="type your post here"
-              [(ngModel)]="textForPost"
+              placeholder="type your description here"
+              [(ngModel)]="description"
             ></textarea>
-            <button (click)="createBlogPost()"
+            <button (click)="createAd()"
                     class="btn btn-dark btn-block">
               <i class="fa fa-plus"></i>
             </button>

@@ -151,6 +151,16 @@ export class PersonServiceClient {
   //     .then(response => response.json());
   // }
 
+  createAd(repid, ad) {
+    console.log('Creating new ad for person # ' + repid);
+    return fetch(baseApiUrl + 'companyrep/' + repid + '/newAd', {
+      method: 'put',
+      body: JSON.stringify(ad),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
 
 
 
@@ -262,5 +272,11 @@ export class PersonServiceClient {
     });
   }
 
+  deleteAd(adid) {
+    return fetch(baseApiUrl + 'advertisement/' + adid, {
+      // credentials: 'include',
+      method: 'delete'
+    });
+  }
 
 }

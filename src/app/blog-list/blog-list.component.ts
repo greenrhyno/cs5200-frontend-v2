@@ -12,6 +12,11 @@ let selfReference
 export class BlogListComponent implements OnInit {
 
   blogList = [];
+  currentAd;
+  adList = [];
+  numAds;
+  adIndex;
+
   constructor(private personService: PersonServiceClient,
               private articleService: ArticleServiceClient,
               private router: Router,
@@ -24,17 +29,27 @@ export class BlogListComponent implements OnInit {
       alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
       selfReference.router.navigate(['login']);
     }
-    this.articleService.findAllArticle()
+    this.articleService.findAllBlog()
       .then(response => {
         this.blogList = response;
         console.log(response);
-      });
+      }).then(() =>
+      this.articleService.findAllAdvertisements().then( ads => {
+          this.adList = ads;
+          console.log('ALL ADS:');
+          console.log(this.adList);
+          this.numAds = this.adList.length;
+          this.adIndex = Math.floor(Math.random() * this.numAds);
+          this.currentAd = this.adList[this.adIndex];
+          console.log('Chosen ad: ');
+          console.log(this.currentAd);
+        }));
   }
 
-  sendToBlog(username) {
+  sendToBlog(id) {
 
-    console.log(username);
-    selfReference.router.navigate(['blog/:' + username]);
+    console.log('Go to blog #' + id);
+    selfReference.router.navigate(['blog/:' + id]);
 
   }
 

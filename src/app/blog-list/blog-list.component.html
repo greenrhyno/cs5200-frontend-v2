@@ -1,19 +1,36 @@
 <div class="row container-fluid">
-  <div class="profilePageContent col-10">
+  <div class="profilePageContent col-8">
     <ul class="listClass list-group">
 
-      <!--<input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by username"/>-->
-      <!--<button class="btn btn-dark mb-2" (click)="fetchByLogin(searchName)">Search</button>-->
+      <h1>Blogs</h1>
 
-      <li class="row list-group-item"  *ngFor="let blog of blogList" >
-        <div  (click)="sendToBlog(this.blog.id)">
-          <img src="{{this.blog.imageURL}}"/>{{this.blog.title}}
-        </div>
-      </li>
-    </ul>
+      <!--<ul class="row listClass list-group">-->
+
+        <li class="row list-group-item"  *ngFor="let blog of blogList" >
+          <div  (click)="sendToBlog(blog.id)">
+            <img *ngIf="blog.imageURL" src="{{blog.imageURL}}}" width="50" height="50"/>
+            <img *ngIf="!blog.imageURL" src="https://picsum.photos/50/50"/>
+            {{blog.title}}
+          </div>
+        </li>
+      </ul>
+    <!--</ul>-->
 
   </div>
-  <div class="col-2">
-    <img src="https://picsum.photos/300/800">
+  <div class="col-4">
+    <img *ngIf="currentAd.imageUrl" src="{{currentAd.imageUrl}}" width="400" height="700">
+    <img *ngIf="!currentAd.imageUrl" src="https://picsum.photos/400/700">
   </div>
 </div>
+
+      <!--<li class="row list-group-item"  *ngFor="let blog of blogList" >-->
+        <!--<div  (click)="sendToBlog(this.blog.id)">-->
+          <!--<img src="{{this.blog.imageURL}}"/>{{this.blog.title}}-->
+        <!--</div>-->
+      <!--</li>-->
+    <!--</ul>-->
+
+  <!--</div>-->
+  <!--<div class="col-2">-->
+    <!--<img src="https://picsum.photos/300/800">-->
+  <!--</div>-->

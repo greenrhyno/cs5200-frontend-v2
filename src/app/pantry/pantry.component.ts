@@ -65,14 +65,21 @@ export class PantryComponent implements OnInit {
       imageUrl: this.pictureUrl,
       description: this.description
     };
+    this.personService.createAd(this.personId, this.newAd).then( r =>
+    this.personService.findAdvertisements(this.personId).then(resp =>
+    this.mainList = resp));
   }
 
   deleteAd(id) {
-    // finish
+    console.log('delete ad ID# ' + id);
+    this.personService.deleteAd(id).then( () =>
+    this.personService.findAdvertisements(this.personId).then( r =>
+    this.mainList = r));
   }
 
 
   deleteBlogPost(id) {
+    console.log('delete blog post ID# ' + id)
     this.chefService.deleteBlogById(id).then(() =>
       this.chefService.findAllBlogsForChef(this.username).then(r => this.mainList = r));
   }
@@ -119,7 +126,7 @@ export class PantryComponent implements OnInit {
         this.chefService.findAllBlogsForChef(this.username).then( r => this.mainList = r);
       } else if (this.personType === 'User') {
         this.personService.findFood(this.personId).then( r => this.mainList = r);
-      } else if (this.personType === 'Admin') {
+      } else if (this.personType === 'CompanyRep') {
         this.personService.findAdvertisements(this.personId).then( r => this.mainList = r);
       } else {
         this.mainList = [];

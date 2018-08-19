@@ -59,8 +59,28 @@ export class ArticleServiceClient {
       });
   }
 
+  findBlogById(id) {
+    return fetch(baseApiUrl + 'blog/' + id)
+      .then(function (response) {
+        if (response.status > 400) {
+          return null;
+        }
+        return response.json();
+      });
+  }
+
   findAllPersonWhoLikedArticle(id) {
     return fetch(pApiUrl + id + '/likes')
+      .then(function (response) {
+        if (response.status > 400) {
+          return null;
+        }
+        return response.json();
+      });
+  }
+
+  findAllAdvertisements() {
+    return fetch(baseApiUrl + 'advertisement/')
       .then(function (response) {
         if (response.status > 400) {
           return null;
@@ -87,7 +107,16 @@ export class ArticleServiceClient {
 
   addLikeToArticle(pid, aid) {
     console.log(pid, aid);
-    return fetch(mamiUrl + pid + '/article/' + aid, {
+    return fetch(mamiUrl + pid + '/article/' + aid + '/like/', {
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  deleteLikeToArticle(pid, aid) {
+    return fetch (mamiUrl + pid + '/article/' + aid + '/unlike/', {
       method: 'put',
       headers: {
         'content-type': 'application/json'

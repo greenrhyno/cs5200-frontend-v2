@@ -2,14 +2,16 @@
 
   <div class="row profilePageContent">
     <div class="col-4">
-      <img src="{{this.person.imageURL}}">
+      <img *ngIf="this.person.imageURL" src="{{this.person.imageURL}}" height="400" width="380">
+      <img *ngIf="!this.person.imageURL" src="https://picsum.photos/380/400">
       <button (click)="follow()" class="profileBtn btn btn-dark btn-block">Follow</button>
       <button (click)="unfollow()" class="profileBtn btn btn-danger btn-block">Unfollow</button>
     </div>
     <div class="col-8">
 
       <h1 class="titleProfile">{{this.person.firstName}} {{this.person.lastName}}</h1>
-      {{this.person.bio}}
+      <p *ngIf="this.person.bio !== null">{{this.person.bio}}</p>
+      <p *ngIf="this.person.bio === null">This user has no bio.</p>
     </div>
   </div>
 

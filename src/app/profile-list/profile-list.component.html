@@ -1,18 +1,21 @@
 <div class="row container-fluid">
-  <div class="profilePageContent col-10">
+  <div class="profilePageContent col-8">
     <ul class="listClass list-group">
 
       <!--<input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by username"/>-->
-      <!--<button class="btn btn-dark mb-2" (click)="fetchByLogin(searchName)">Search</button>-->
+
       <li class="row list-group-item"  *ngFor="let profile of profileList" >
         <div  (click)="sendToProfile(this.profile.login)">
-          <img src="{{this.profile.imageURL}}}"/>{{this.profile.firstName}} {{this.profile.lastName}} {{this.profile.imageURL}}
+          <img *ngIf="this.profile.imageUrl" src="{{this.profile.imageURL}}}" width="50" height="50"/>
+          <img *ngIf="!this.profile.imageUrl" src="https://picsum.photos/50/50"/>
+          {{this.profile.login}} {{this.profile.firstName}} {{this.profile.lastName}}
         </div>
       </li>
     </ul>
 
 </div>
-  <div class="col-2">
-    <img src="https://picsum.photos/300/800">
+  <div class="col-4">
+    <img *ngIf="currentAd.imageUrl" src="{{currentAd.imageUrl}}" width="400" height="700">
+    <img *ngIf="!currentAd.imageUrl" src="https://picsum.photos/400/700">
   </div>
 </div>
