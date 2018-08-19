@@ -158,97 +158,75 @@
           <h1 class="welcome centerThis"> What's in your pantry:</h1>
 
           <ul class="list-group">
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
+            <li class="list-group-item" *ngFor="let item of mainList">
+              {{item.foodName}} <i class="fa fa-trash-alt float-right" (click)="deleteFoodItem(item.id)"></i>
             </li>
           </ul>
+
 
           <div class="add">
             <input
               class="form-control container-fluid"
               placeholder="Add another ingredient here."
+              [(ngModel)]="newFoodName"
             />
-            <button
+            <button (click)="createFoodItem(newFoodName)"
               class="btn btn-dark btn-block">
               <i class="fa fa-plus"></i>
             </button>
           </div>
+
+          <br/><br/>
+          <h1 class="welcome centerThis">Your Likes</h1>
+
+          <ul class="list-group likes-title">
+            <li class="list-group-item" *ngFor="let item of contentLiked">
+              {{item.name}}
+            </li>
+          </ul>
 
 
         </div>
         <div class="col-5">
-          <!--Maybe place an add type bar here-->
-          <h1 class="welcome centerThis">Grocery List:</h1>
 
-          <ul class="list-group">
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
-            </li>
-            <li class="list-group-item">Dapibus ac facilisis in
-              <i class="fa fa-trash-alt float-right"></i>
+          <button class="container-fluid btn btn-dark btn-block" (click)="generateRecipesFromPantry(personId)">
+            Generate Recipes From Your Pantry Items!
+          </button>
+
+          <ul class="list-group recipeGroup">
+            <li class="list-group-item centerThis" *ngFor="let recipe of recipeList" (click)= navigateToRecipe(recipe.id)>
+              <a><img class= "centerThis" src="{{recipe.image}}"/>  <br/> {{recipe.title}}</a>
             </li>
           </ul>
+          <!--<div class="add">-->
+            <!--<input-->
+              <!--class="form-control container-fluid"-->
+              <!--placeholder="Add a grocery item to your list here."-->
+            <!--/>-->
+            <!--<button-->
+              <!--class="btn btn-dark btn-block">-->
+              <!--<i class="fa fa-plus"></i>-->
+            <!--</button>-->
+          <!--</div>-->
 
-          <div class="add">
-            <input
-              class="form-control container-fluid"
-              placeholder="Add a grocery item to your list here."
-            />
-            <button
-              class="btn btn-dark btn-block">
-              <i class="fa fa-plus"></i>
-            </button>
-          </div>
 
+          <!--<h1 class="welcome2 centerThis">What's for dinner?</h1>-->
+          <!--<p class="centerThis ">Simply click here and find out! We'll pull info from your pantry and find the-->
+            <!--perfect recipe for you at random. Enjoy and happy cooking. </p>-->
 
-          <h1 class="welcome2 centerThis">What's for dinner?</h1>
-          <p class="centerThis ">Simply click here and find out! We'll pull info from your pantry and find the
-            perfect recipe for you at random. Enjoy and happy cooking. </p>
-
-          <div class="search">
-            <input
-              class="form-control container-fluid"
-              placeholder="Recipes by ingredients."
-            />
-            <button
-              class="btn btn-dark btn-block">
-              Search for recipes!
-            </button>
-          </div>
+          <!--<div class="search">-->
+            <!--<input-->
+              <!--class="form-control container-fluid"-->
+              <!--placeholder="Recipes by ingredients."-->
+            <!--/>-->
+            <!--<button-->
+              <!--class="btn btn-dark btn-block">-->
+              <!--Search for recipes!-->
+            <!--</button>-->
+          <!--</div>-->
         </div>
 
+      </div>
 
       </div>
+</div>

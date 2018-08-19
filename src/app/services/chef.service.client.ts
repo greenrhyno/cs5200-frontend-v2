@@ -25,6 +25,25 @@ export class ChefServiceClient {
         return response.json();
       });
   }
+  createNewBlog(chefId, blog) {
+    console.log(chefId, blog);
+    return fetch(pApiUrl + chefId + '/blog', {
+      method: 'put',
+      body: JSON.stringify(blog),
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
+  findAllBlogsForChef(username) {
+    return fetch(baseApiUrl + 'blog/login/' + username).then(function (response) {
+      if (response.status > 400) {
+        return null;
+      }
+      return response.json();
+    });
+  }
 
   findChefByLogin(login) {
     return fetch( pApiUrl + 'login/' + login)

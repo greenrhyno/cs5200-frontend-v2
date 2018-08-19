@@ -113,7 +113,7 @@ export class PersonServiceClient {
   }
 
   findPersonById(id) {
-    return fetch( pApiUrl + 'login/' + id)
+    return fetch(pApiUrl + 'login/' + id)
       .then(function (response) {
         if (response.status > 400) {
           return null;
@@ -121,6 +121,16 @@ export class PersonServiceClient {
         return response.json();
       });
   }
+
+    findFood(id) {
+      return fetch( baseApiUrl + 'user/' + id + '/fooditem/')
+        .then(function (response) {
+          if (response.status > 400) {
+            return null;
+          }
+          return response.json();
+        });
+    }
 
   findAllPerson() {
     return fetch( pApiUrl)
@@ -202,8 +212,16 @@ export class PersonServiceClient {
     }).then(response => response.json());
   }
 
+  findAdvertisements(id) {
+    return fetch(baseApiUrl + 'advertisement/companyrep/' + id)
+      .then(function (response) {
+        if (response.status > 400) {
+          return null;
+        }
+        return response.json();
+      });
 
-
+  }
 
 
   // createUser(username, password) {

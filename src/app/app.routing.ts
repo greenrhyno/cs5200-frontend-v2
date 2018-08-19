@@ -16,16 +16,16 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'pantry', component: PantryComponent},
-  { path: 'blog/:personId', component: BlogComponent},
+  { path: 'blog', component: BlogComponent},
   { path: 'blog-list', component: BlogListComponent},
-  { path: 'publicProfile/:personId', component: PublicProfileComponent},
+  { path: 'publicProfile', component: PublicProfileComponent},
   { path: 'profileList', component: ProfileListComponent},
   { path: 'admin-mgmt', component: AdminMgmtPageComponent},
-  {path: 'blog-list', component: BlogListComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: 'blog-list', component: BlogListComponent},
+  { path: 'blog', component: BlogComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomePageComponent},
-  {path: '**', component: HomePageComponent}
+  { path: '**', component: HomePageComponent}
 
 ];
 
