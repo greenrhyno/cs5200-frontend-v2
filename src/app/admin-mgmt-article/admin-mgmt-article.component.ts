@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleServiceClient} from '../services/article.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-mgmt-article',
@@ -11,11 +12,15 @@ export class AdminMgmtArticleComponent implements OnInit {
   articleList = [];
   searchName;
 
-  constructor( private articleService: ArticleServiceClient) {}
+  constructor( private articleService: ArticleServiceClient, private router: Router) {}
 
   fetchByLogin() {
     this.articleService.findArticleByLogin(this.searchName).then( articles =>
     this.articleList = articles);
+  }
+
+  goToUserMgmt() {
+    this.router.navigate(['admin-mgmt']);
   }
 
   deleteArticle(id) {

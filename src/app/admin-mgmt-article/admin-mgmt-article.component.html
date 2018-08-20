@@ -4,17 +4,18 @@
   <div class="col row search-bar form-inline container-fluid" >
     <input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by author login"/>
     <button class="btn btn-primary mb-2" (click)="fetchByLogin()">Search</button>
+    <button class="btn btn-dark mb-4" (click)="goToUserMgmt()">Manage User</button>
   </div>
   <ul class="list-group">
     <li class="list-group-item">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           Title
         </div>
-        <div class="col-md-4">
-          Author
-        </div>
-        <div class="col-md-4">
+        <!--<div class="col-md-4">-->
+          <!--Author-->
+        <!--</div>-->
+        <div class="col-md-6">
           Image
         </div>
 
@@ -24,19 +25,19 @@
 
     <li class="list-group-item" *ngFor="let a of articleList">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <input [(ngModel)]="a.title"
                  placeholder="title"
                  id="title"
                  class="form-control"/>
         </div>
-        <div class="col-md-2">
-          <input [(ngModel)]="a.person"
-                 placeholder="author"
-                 id="password"
-                 class="form-control"/>
-        </div>
-        <div class="col-md-4">
+        <!--<div class="col-md-2">-->
+          <!--<input [(ngModel)]="a.person"-->
+                 <!--placeholder="author"-->
+                 <!--id="password"-->
+                 <!--class="form-control"/>-->
+        <!--</div>-->
+        <div class="col-md-6">
           <input [(ngModel)]="a.imageUrl"
                  placeholder="imageUrl"
                  id="imageUrl"

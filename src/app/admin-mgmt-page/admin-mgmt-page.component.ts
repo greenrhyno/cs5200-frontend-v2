@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PersonServiceClient} from '../services/person.service.client';
+import {Router} from '@angular/router';
 let selfReference;
 
 @Component({
@@ -17,7 +18,7 @@ export class AdminMgmtPageComponent implements OnInit {
   pswd;
   pType;
 
-  constructor(private personService: PersonServiceClient) {
+  constructor(private personService: PersonServiceClient, private router: Router) {
     selfReference = this;
   }
 
@@ -44,6 +45,10 @@ export class AdminMgmtPageComponent implements OnInit {
       selfReference.retrieveAllPeople();
     }
    );
+  }
+
+  goToArticleMgmt() {
+    this.router.navigate(['admin-mgmt-article']);
   }
 
   createNewUser(login, password, type) {
