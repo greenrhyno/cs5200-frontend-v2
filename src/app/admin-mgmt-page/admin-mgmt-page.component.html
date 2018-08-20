@@ -71,5 +71,27 @@
       </div>
     </li>
 
+  <li class="list-group-item" >
+    <div class="row">
+      <div class="col-md-2">
+        <input [(ngModel)]="lgn"
+               placeholder="username"
+               id="lgn"
+               class="form-control"/>
+      </div>
+      <div class="col-md-2">
+        <input [(ngModel)]="pswd"
+               placeholder="password"
+               id="pswd"
+               class="form-control"/>
+      </div>
+      <div class="col-md-2">
+        <select [(ngModel)]="pType"> <option value="User">User</option> <option value="Admin">Admin</option>
+          <option value="Chef">Chef</option> <option value="CompanyRep">Company Representative</option> </select>
+      </div>
+      <button (click)="createNewUser(lgn, pswd, pType)">Create new User</button>
+    </div>
+  </li>
+
 </ul>
 </div>

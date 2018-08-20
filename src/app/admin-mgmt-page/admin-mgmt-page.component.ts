@@ -11,6 +11,12 @@ export class AdminMgmtPageComponent implements OnInit {
 
   searchName;
   personList = [];
+  fName;
+  lName;
+  lgn;
+  pswd;
+  pType;
+
   constructor(private personService: PersonServiceClient) {
     selfReference = this;
   }
@@ -38,6 +44,11 @@ export class AdminMgmtPageComponent implements OnInit {
       selfReference.retrieveAllPeople();
     }
    );
+  }
+
+  createNewUser(login, password, type) {
+    this.personService.createPerson(login, password, type).then(() =>
+    this.personService.findAllPerson().then(r => this.personList = r));
   }
 
   ngOnInit() {
