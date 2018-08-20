@@ -121,7 +121,7 @@ export class PantryComponent implements OnInit {
       selfReference.router.navigate(['profile']);
     }
 
-    this.personService.getPeopleFollowed(this.personId)
+    this.personService.getPeopleFollowed()
       .then(response => {
           this.peopleFollow = response;
           console.log('THIS IS PRINTING, I HOPE!');

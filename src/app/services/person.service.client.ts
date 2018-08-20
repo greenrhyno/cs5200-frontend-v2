@@ -36,7 +36,7 @@ export class PersonServiceClient {
       });
   }
 
-  getPeopleFollowed(this.id) {
+  getPeopleFollowed() {
     return fetch('https://panfree.herokuapp.com/api/person/' + this.id + '/follow')
       .then(function (response) {
         if (response.status > 400) {
