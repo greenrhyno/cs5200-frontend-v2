@@ -26,6 +26,7 @@ export class PersonServiceClient {
   setSearchPerson(username) {
     this.searchPerson = username;
   }
+
   profile() {
     return fetch( pApiUrl + 'login/' + this.username)
       .then(function (response) {
@@ -35,6 +36,7 @@ export class PersonServiceClient {
         return response.json();
       });
   }
+
 
   getPeopleFollowed() {
     return fetch('https://panfree.herokuapp.com/api/person/' + this.id + '/follow')

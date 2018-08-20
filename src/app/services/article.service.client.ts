@@ -133,14 +133,14 @@ export class ArticleServiceClient {
 
   deleteArticleById(pid) {
     return fetch(pApiUrl + pid, {
-      credentials: 'include',
+      // credentials: 'include',
       method: 'delete'
     });
   }
 
   deleteAllArticleForALogin(login) {
     return fetch(pApiUrl + 'login/' + login, {
-      credentials: 'include',
+      // credentials: 'include',
       method: 'delete'
     });
   }
