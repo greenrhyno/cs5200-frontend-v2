@@ -9,6 +9,7 @@ import {PublicProfileComponent} from './public-profile/public-profile.component'
 import {ProfileListComponent} from './profile-list/profile-list.component';
 import {BlogComponent} from './blog/blog.component';
 import {BlogListComponent} from './blog-list/blog-list.component';
+import {AdminMgmtArticleComponent} from './admin-mgmt-article/admin-mgmt-article.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'publicProfile/:username', component: PublicProfileComponent},
   { path: 'profileList', component: ProfileListComponent},
   { path: 'admin-mgmt', component: AdminMgmtPageComponent},
+  { path: 'admin-mgmt-article', component: AdminMgmtArticleComponent},
   { path: 'blog-list', component: BlogListComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomePageComponent},

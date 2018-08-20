@@ -22,6 +22,7 @@ import { PublicProfileComponent } from './public-profile/public-profile.componen
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogComponent } from './blog/blog.component';
+import { AdminMgmtArticleComponent } from './admin-mgmt-article/admin-mgmt-article.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BlogComponent } from './blog/blog.component';
     PublicProfileComponent,
     ProfileListComponent,
     BlogListComponent,
-    BlogComponent
+    BlogComponent,
+    AdminMgmtArticleComponent
   ],
   imports: [
     BrowserModule,

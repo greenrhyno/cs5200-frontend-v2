@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <h1>Article Management</h1>
+
+  <div class="col row search-bar form-inline container-fluid" >
+    <input [(ngModel)]="searchName" class="form-control container-fluid" placeholder="Search by author login"/>
+    <button class="btn btn-primary mb-2" (click)="fetchByLogin(searchName)">Search</button>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="row">
+        <div class="col-md-4">
+          Title
+        </div>
+        <div class="col-md-4">
+          Author
+        </div>
+        <div class="col-md-4">
+          Image
+        </div>
+
+
+      </div>
+    </li>
+
+    <li class="list-group-item" *ngFor="let a of articleList">
+      <div class="row">
+        <div class="col-md-4">
+          <input [(ngModel)]="a.title"
+                 placeholder="title"
+                 id="title"
+                 class="form-control"/>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="a.person"
+                 placeholder="author"
+                 id="password"
+                 class="form-control"/>
+        </div>
+        <div class="col-md-4">
+          <input [(ngModel)]="a.imageUrl"
+                 placeholder="imageUrl"
+                 id="imageUrl"
+                 class="form-control"/>
+        </div>
+
+        <i class="fas fa-trash-alt" (click)="deleteArticle(a.id)"></i>
+
+        <!--<i class="fas fa-save" (click)="updatePerson(a.id, a)"></i>-->
+      </div>
+    </li>
+
+  </ul>
+</div>
