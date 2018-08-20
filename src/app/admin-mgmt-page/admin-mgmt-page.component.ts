@@ -42,10 +42,11 @@ export class AdminMgmtPageComponent implements OnInit {
 
   ngOnInit() {
 
-    if (this.personService.personType !== 'Admin') {
-      alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
-      selfReference.router.navigate(['login']);
-    }
+    // if (this.personService.personType !== 'Admin') {
+    //   console.log(this.personService.personType);
+    //   alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
+    //   selfReference.router.navigate(['login']);
+    // }
 
     selfReference.retrieveAllPeople();
   }

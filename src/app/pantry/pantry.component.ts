@@ -4,6 +4,7 @@ import {ArticleServiceClient} from '../services/article.service.client';
 import {ChefServiceClient} from '../services/chef.service.client';
 import {UserServiceClient} from '../services/user.service.client';
 import {RecipeServiceClient} from '../services/recipe.service.client';
+import {Router} from '@angular/router';
 let selfReference;
 
 @Component({
@@ -29,6 +30,7 @@ export class PantryComponent implements OnInit {
   newBlog;
   newAd;
   description;
+  peopleFollow;
 
   submitPost() {
     alert('A post to your adoring fans has been submitted!');
@@ -40,6 +42,7 @@ export class PantryComponent implements OnInit {
 
   constructor(private personService: PersonServiceClient, private articleService: ArticleServiceClient,
               private chefService: ChefServiceClient, private userService: UserServiceClient,
+              private router: Router,
               private recipeService: RecipeServiceClient) {
     selfReference = this;
   }
@@ -79,7 +82,7 @@ export class PantryComponent implements OnInit {
 
 
   deleteBlogPost(id) {
-    console.log('delete blog post ID# ' + id)
+    console.log('delete blog post ID# ' + id);
     this.chefService.deleteBlogById(id).then(() =>
       this.chefService.findAllBlogsForChef(this.username).then(r => this.mainList = r));
   }
@@ -99,12 +102,33 @@ export class PantryComponent implements OnInit {
       });
   }
 
+  navigateToBlog(id) {
+    this.router.navigate(['blog/:' + id]);
+  }
+
+  navigateToPerson(username) {
+    this.router.navigate(['publicProfile/:' + username]);
+  }
+
   ngOnInit() {
-    if (this.personService.username === '') {
+    if (this.personService.username === '' ) {
       alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
       selfReference.router.navigate(['login']);
     }
 
+    if (this.personService.username === 'Admin' ) {
+      alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
+      selfReference.router.navigate(['profile']);
+    }
+
+    this.personService.getPeopleFollowed(this.personId)
+      .then(response => {
+          this.peopleFollow = response;
+          console.log('THIS IS PRINTING, I HOPE!');
+          console.log(response);
+      }
+        );
+    console.log(this.peopleFollow);
     this.username = selfReference.personService.username;
 
     this.personService.findPersonByLogin(this.username)

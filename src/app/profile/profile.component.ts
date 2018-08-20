@@ -101,6 +101,10 @@ export class ProfileComponent implements OnInit {
     selfReference.router.navigate(['pantry']);
   }
 
+  navigateToAdmin() {
+    selfReference.router.navigate(['admin-mgmt']);
+  }
+
 
 
   constructor(private router: Router, private personService: PersonServiceClient) {

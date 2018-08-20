@@ -21,15 +21,21 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="pantry">Dashboard</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="publicProfile">Public Profile</a>
-      </li>
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" routerLink="publicProfile">Public Profile</a>-->
+      <!--</li>-->
       <li class="nav-item">
         <a class="nav-link" routerLink="profileList">Profile List</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="blog">Blog</a>
-      </li>
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" routerLink="blog">Blog</a>-->
+      <!--</li>-->
+
+      <div [ngSwitch]="type">
+          <li class="nav-item" *ngSwitchCase="'Admin'">
+            <a class="nav-link" routerLink="admin-mgmt">Admin Page</a>
+          </li>
+      </div>
       <li class="nav-item">
         <a class="nav-link" routerLink="blog-list">Blog List</a>
       </li>

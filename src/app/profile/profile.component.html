@@ -15,7 +15,7 @@
             <input
               class="form-control container-fluid"
               placeholder="username"
-            [(ngModel)]="username"/>
+              [(ngModel)]="username"/>
 
           </div>
         </div>
@@ -29,7 +29,7 @@
               class="form-control container-fluid"
               placeholder="password"
               type="password"
-            [(ngModel)]="password"/>
+              [(ngModel)]="password"/>
           </div>
         </div>
 
@@ -41,7 +41,7 @@
             <input
               class="form-control container-fluid"
               placeholder="First Name"
-            [(ngModel)]="firstName"/>
+              [(ngModel)]="firstName"/>
 
 
           </div>
@@ -55,7 +55,7 @@
             <input
               class="form-control container-fluid"
               placeholder="Last Name"
-            [(ngModel)]="lastName"/>
+              [(ngModel)]="lastName"/>
 
           </div>
         </div>
@@ -130,24 +130,22 @@
         </div>
 
 
-
-
         <div class="row">
           <div class="col-2">
 
           </div>
           <div class="col-10">
             <button (click)="updateUser()"
-              class="updateButton btn btn-dark btn-block">
+                    class="updateButton btn btn-dark btn-block">
               Update
             </button>
 
             <div [ngSwitch]="type">
               <div *ngSwitchCase="'Chef'">
-            <button (click)="navigateToPantry()"
-              class="pantryButton btn btn-secondary btn-block">
-              Let's blog about your current work!
-            </button>
+                <button (click)="navigateToPantry()"
+                        class="pantryButton btn btn-secondary btn-block">
+                  Let's blog about your current work!
+                </button>
               </div>
               <div *ngSwitchCase="'CompanyRep'">
                 <button (click)="navigateToPantry()"

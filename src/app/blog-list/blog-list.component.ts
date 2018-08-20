@@ -25,10 +25,10 @@ export class BlogListComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.personService.username === '') {
-      alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
-      selfReference.router.navigate(['login']);
-    }
+    // if (this.personService.username === '') {
+    //   alert('Uth oh, we seemed to have misplaced your credentials. Please, sign in again.');
+    //   selfReference.router.navigate(['login']);
+    // }
     this.articleService.findAllBlog()
       .then(response => {
         this.blogList = response;
